@@ -43,32 +43,35 @@ public class ChessBoard {
         return board[row][col];
     }
 
-    public boolean placePiece(ChessPiece piece, String position) {
-        if(position.length() != 2) return false;
+    // This method tries to place the given piece at a given position, and returns true if successful, and false if
+    // there is already a piece of the same player in the given position or the position was illegal for any of the
+    // two reasons mentioned in the description of getPiece. If an opponent's piece exists, that piece is captured.
+    // If successful, this method should call an appropriate method in the ChessPiece class (i.e., setPosition) to
+    // set the piece's position.
+    public boolean placePiece(ChessPiece piece, String newPosition) {
+        if(newPosition.length() != 2) return false;
         try {
-            if(getPiece(position) == null || getPiece(position).getColor() != piece.getColor()){
-                int row = position.charAt(0) - 'a';
-                int col = Character.getNumericValue(position.charAt(1)) - 1;
-                piece.setPosition(position);    //check out setPosition
+            String oldPosition = piece.getPosition();
+            int oldRow = getRow(oldPosition);
+            int oldCol = getCol(oldPosition);
+            if(getPiece(newPosition) == null || getPiece(newPosition).getColor() != piece.getColor()) {
+                piece.setPosition(newPosition);    //check out setPosition
+                int row = getRow(newPosition);
+                int col = getCol(newPosition);
                 board[row][col] = piece;
+                board[oldRow][oldCol] = null;
                 return true;
                 //FIXME how do I account for a piece that is captured and removed from the board. I need to update that
                 //FIXME old piece instance row/col variables to be -1? Or I probably just don't care
-            } else {
+            }
+            else {
                 return false;
             }
         } catch (IllegalPositionException e) {
             return false;
         }
-
-
-        // This method tries to place the given piece at a given position, and returns true if successful, and false if
-        // there is already a piece of the same player in the given position or the position was illegal for any of the
-        // two reasons mentioned in the description of getPiece. If an opponent's piece exists, that piece is captured.
-        // If successful, this method should call an appropriate method in the ChessPiece class (i.e., setPosition) to
-        // set the piece's position.
-
     }
+
 
     public void move(String fromPosition, String toPosition) throws IllegalMoveException {
         // This method checks if moving the piece from the fromPosition to toPosition is a legal move. Legality is
