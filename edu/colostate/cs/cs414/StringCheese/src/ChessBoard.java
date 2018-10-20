@@ -71,7 +71,14 @@ public class ChessBoard {
             return false;
         }
     }
+ 
+    private int getRow(String position) {
+        return position.charAt(0) - 'a';
+    }
 
+    private int getCol(String position){
+        return Character.getNumericValue(position.charAt(1)) - 1;
+    }
 
     public void move(String fromPosition, String toPosition) throws IllegalMoveException {
         // This method checks if moving the piece from the fromPosition to toPosition is a legal move. Legality is
