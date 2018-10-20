@@ -1,0 +1,3 @@
+class IllegalPositionExceptionTest extends ChessSuite {
+
+}
