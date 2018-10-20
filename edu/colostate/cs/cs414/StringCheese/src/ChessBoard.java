@@ -38,8 +38,8 @@ public class ChessBoard {
         if(position.charAt(0) < 'a' || position.charAt(0) > 'h' ||
            position.charAt(1) < '1' || position.charAt(1) > '8')
             throw new IllegalPositionException();
-        int row = position.charAt(0) - 'a';
-        int col = Character.getNumericValue(position.charAt(1)) - 1;
+        int row = getRow(position);
+        int col = getCol(position);
         return board[row][col];
     }
 
