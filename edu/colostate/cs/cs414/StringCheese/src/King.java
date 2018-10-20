@@ -1,4 +1,4 @@
-package src.edu.colostate.cs.cs414.StringCheese;
+package edu.colostate.cs.cs414.StringCheese.src;
 
 import java.util.ArrayList;
 

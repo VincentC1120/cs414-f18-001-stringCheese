@@ -1,6 +1,6 @@
-package test.edu.colostate.cs.cs414.StringCheese;
+package edu.colostate.cs.cs414.StringCheese.test;
 
-class PawnTest extends ChessSuite {
+class BishopTest extends ChessSuite {
 
     @org.junit.jupiter.api.Test
     void legalMoves() {

@@ -1,4 +1,4 @@
-package test.edu.colostate.cs.cs414.StringCheese;
+package edu.colostate.cs.cs414.StringCheese.test;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

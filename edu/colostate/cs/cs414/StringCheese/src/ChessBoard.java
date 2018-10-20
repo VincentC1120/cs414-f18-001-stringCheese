@@ -1,4 +1,4 @@
-package src.edu.colostate.cs.cs414.StringCheese;
+package edu.colostate.cs.cs414.StringCheese.src;
 
 public class ChessBoard {
     private ChessPiece[][] board;
@@ -65,7 +65,7 @@ public class ChessBoard {
         // This method tries to place the given piece at a given position, and returns true if successful, and false if
         // there is already a piece of the same player in the given position or the position was illegal for any of the
         // two reasons mentioned in the description of getPiece. If an opponent's piece exists, that piece is captured.
-        // If successful, this method should call an appropriate method in the src.edu.colostate.cs.cs414.StringCheese.ChessPiece class (i.e., setPosition) to
+        // If successful, this method should call an appropriate method in the ChessPiece class (i.e., setPosition) to
         // set the piece's position.
 
     }
@@ -88,7 +88,7 @@ public class ChessBoard {
             s += '\n';
         }
         return s;
-        // call src.edu.colostate.cs.cs414.StringCheese.ChessPiece toString(), just for debugging
+        // call ChessPiece toString(), just for debugging
     }
 
     public static void main(String[] args) {

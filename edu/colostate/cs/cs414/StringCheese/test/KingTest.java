@@ -1,6 +1,4 @@
-package test.edu.colostate.cs.cs414.StringCheese;
-
-import static org.junit.jupiter.api.Assertions.*;
+package edu.colostate.cs.cs414.StringCheese.test;
 
 class KingTest extends ChessSuite {
 

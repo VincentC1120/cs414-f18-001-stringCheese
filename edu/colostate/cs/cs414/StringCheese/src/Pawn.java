@@ -1,13 +1,12 @@
-package src.edu.colostate.cs.cs414.StringCheese;
+package edu.colostate.cs.cs414.StringCheese.src;
 
 import java.util.ArrayList;
 
-
-public class Bishop extends ChessPiece {
+public class Pawn extends ChessPiece {
 
     private ArrayList<String> legalMoves;
 
-    public Bishop(ChessBoard board, Color color) {
+    public Pawn(ChessBoard board, Color color) {
         super(board, color);
     }
 
@@ -20,7 +19,7 @@ public class Bishop extends ChessPiece {
     }
 
     public String toString(){
-        if (getColor() == Color.White) { return "\u2657"; }
-        else return "\u265D";
+        if (getColor() == Color.White) { return "\u2659"; }
+        else return "\u265F";
     }
 }
