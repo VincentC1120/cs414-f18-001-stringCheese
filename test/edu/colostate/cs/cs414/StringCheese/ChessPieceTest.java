@@ -1,7 +1,7 @@
+package test.edu.colostate.cs.cs414.StringCheese;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ChessPieceTest {
 
@@ -16,22 +16,22 @@ class ChessPieceTest {
     }
 
     @org.junit.jupiter.api.Test
-    void getColor() {
+    void testGetColor() {
     }
 
     @org.junit.jupiter.api.Test
-    void getPosition() {
+    void testGetPosition() {
     }
 
     @org.junit.jupiter.api.Test
-    void setPosition() {
+    void testSetPosition() {
     }
 
     @org.junit.jupiter.api.Test
-    void legalMoves() {
+    void testLegalMoves() {
     }
 
     @org.junit.jupiter.api.Test
-    void toString() {
+    void testToString() {
     }
 }

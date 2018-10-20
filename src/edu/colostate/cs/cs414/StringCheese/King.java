@@ -1,3 +1,5 @@
+package src.edu.colostate.cs.cs414.StringCheese;
+
 import java.util.ArrayList;
 
 public class King extends ChessPiece {

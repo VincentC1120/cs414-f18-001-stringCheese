@@ -1,4 +1,4 @@
-import static org.junit.jupiter.api.Assertions.*;
+package test.edu.colostate.cs.cs414.StringCheese;
 
 class PawnTest extends ChessSuite {
 
@@ -7,6 +7,7 @@ class PawnTest extends ChessSuite {
     }
 
     @org.junit.jupiter.api.Test
-    void toString() {
+    public String toString() {
+        return null;
     }
 }

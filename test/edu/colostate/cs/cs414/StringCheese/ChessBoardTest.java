@@ -1,13 +1,10 @@
+package test.edu.colostate.cs.cs414.StringCheese;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.*;
-
-import java.util.ArrayList;
-import java.util.Objects;
-
-import static org.junit.jupiter.api.AssertTrue.assertTrue;
+import src.edu.colostate.cs.cs414.StringCheese.IllegalPositionException;
 
 
 class ChessBoardTest extends ChessSuite {

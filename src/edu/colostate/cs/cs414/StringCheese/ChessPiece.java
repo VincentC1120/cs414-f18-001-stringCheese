@@ -1,3 +1,7 @@
+package src.edu.colostate.cs.cs414.StringCheese;
+
+import src.edu.colostate.cs.cs414.StringCheese.ChessBoard;
+
 import java.util.ArrayList;
 
 public abstract class ChessPiece {

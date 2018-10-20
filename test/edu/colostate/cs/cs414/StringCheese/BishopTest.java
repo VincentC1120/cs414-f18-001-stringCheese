@@ -1,3 +1,5 @@
+package test.edu.colostate.cs.cs414.StringCheese;
+
 class BishopTest extends ChessSuite {
 
     @org.junit.jupiter.api.Test
@@ -5,7 +7,7 @@ class BishopTest extends ChessSuite {
     }
 
     @org.junit.jupiter.api.Test
-    String toString() {
+    public String toString() {
         return null;
     }
 }

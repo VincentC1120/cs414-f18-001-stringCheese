@@ -1,10 +1,12 @@
+package src.edu.colostate.cs.cs414.StringCheese;
+
 import java.util.ArrayList;
 
-public class Pawn extends ChessPiece {
+public class Rook extends ChessPiece {
 
     private ArrayList<String> legalMoves;
 
-    public Pawn(ChessBoard board, Color color) {
+    public Rook(ChessBoard board, Color color) {
         super(board, color);
     }
 
@@ -17,7 +19,7 @@ public class Pawn extends ChessPiece {
     }
 
     public String toString(){
-        if (getColor() == Color.White) { return "\u2659"; }
-        else return "\u265F";
+        if (getColor() == Color.White) { return "\u2656"; }
+        else return "\u265C";
     }
 }

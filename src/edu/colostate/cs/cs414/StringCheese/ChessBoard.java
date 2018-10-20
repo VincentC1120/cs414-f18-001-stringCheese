@@ -1,3 +1,5 @@
+package src.edu.colostate.cs.cs414.StringCheese;
+
 public class ChessBoard {
     private ChessPiece[][] board;
 
@@ -11,24 +13,18 @@ public class ChessBoard {
         // newly constructed pieces in the right position.
         // a = 0, b = 1, ..., h = 7
         placePiece( new Rook(this, ChessPiece.Color.White), "a1");
-        placePiece( new Knight(this, ChessPiece.Color.White), "b1");
         placePiece( new Bishop(this, ChessPiece.Color.White), "c1");
-        placePiece( new Queen(this, ChessPiece.Color.White), "d1");
         placePiece( new King(this, ChessPiece.Color.White), "e1");
         placePiece( new Bishop(this, ChessPiece.Color.White), "f1");
-        placePiece( new Knight(this, ChessPiece.Color.White), "g1");
         placePiece( new Rook(this, ChessPiece.Color.White), "h1");
         for(char i = 'a'; i < 'i'; i++){
             placePiece( new Pawn(this, ChessPiece.Color.White), Character.toString(i) + Integer.toString(2));
             placePiece( new Pawn(this, ChessPiece.Color.Black), Character.toString(i) + Integer.toString(7));
         }
         placePiece( new Rook(this, ChessPiece.Color.Black), "a8");
-        placePiece( new Knight(this, ChessPiece.Color.Black), "b8");
         placePiece( new Bishop(this, ChessPiece.Color.Black), "c8");
-        placePiece( new Queen(this, ChessPiece.Color.Black), "d8");
         placePiece( new King(this, ChessPiece.Color.Black), "e8");
         placePiece( new Bishop(this, ChessPiece.Color.Black), "f8");
-        placePiece( new Knight(this, ChessPiece.Color.Black), "g8");
         placePiece( new Rook(this, ChessPiece.Color.Black), "h8");
 
     }
@@ -69,7 +65,7 @@ public class ChessBoard {
         // This method tries to place the given piece at a given position, and returns true if successful, and false if
         // there is already a piece of the same player in the given position or the position was illegal for any of the
         // two reasons mentioned in the description of getPiece. If an opponent's piece exists, that piece is captured.
-        // If successful, this method should call an appropriate method in the ChessPiece class (i.e., setPosition) to
+        // If successful, this method should call an appropriate method in the src.edu.colostate.cs.cs414.StringCheese.ChessPiece class (i.e., setPosition) to
         // set the piece's position.
 
     }
@@ -92,7 +88,7 @@ public class ChessBoard {
             s += '\n';
         }
         return s;
-        // call ChessPiece toString(), just for debugging
+        // call src.edu.colostate.cs.cs414.StringCheese.ChessPiece toString(), just for debugging
     }
 
     public static void main(String[] args) {
