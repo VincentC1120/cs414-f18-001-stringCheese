@@ -1,17 +1,18 @@
 package edu.colostate.cs.cs414.StringCheese.src;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 
 public class Bishop extends ChessPiece {
 
-    private ArrayList<String> legalMoves;
+    private HashSet<String> legalMoves;
 
     public Bishop(ChessBoard board, Color color) {
         super(board, color);
+        legalMoves = new HashSet<String>();
     }
 
-    public ArrayList<String> legalMoves(){
+    public HashSet<String> legalMoves(){
         String position = getPosition();
 
 
