@@ -1,6 +1,6 @@
 package edu.colostate.cs.cs414.StringCheese.src;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 public abstract class ChessPiece {
 
@@ -31,7 +31,7 @@ public abstract class ChessPiece {
         this.position = position;
     }
 
-    abstract public ArrayList<String> legalMoves();
+    abstract public HashSet<String> legalMoves();
     abstract public String toString();
 
 }
