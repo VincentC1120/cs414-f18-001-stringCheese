@@ -8,6 +8,7 @@ public class King extends ChessPiece {
 
     public King(ChessBoard board, Color color) {
         super(board, color);
+        legalMoves = new HashSet<String>();
     }
 
     public HashSet<String> legalMoves() {
