@@ -1,5 +1,7 @@
 package edu.colostate.cs.cs414.StringCheese.src;
 
+import java.util.HashSet;
+
 public class ChessBoard {
     private ChessPiece[][] board;
 
