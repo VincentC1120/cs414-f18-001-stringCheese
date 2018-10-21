@@ -34,35 +34,25 @@ public class ChessBoard {
         // string (e.g., e8) as described above. The first letter is in lowercase (a..h) and the second letter is a
         // digit (1..8). If the position is illegal because the string contains illegal characters or represents a
         // position outside the board, the exception is thrown.
-
-        if(position.charAt(0) < 'a' || position.charAt(0) > 'h' ||
-           position.charAt(1) < '1' || position.charAt(1) > '8')
-            throw new IllegalPositionException();
-        int row = getRow(position);
-        int col = getCol(position);
-        return board[row][col];
+        checkVaildPosition(position);
+        return board[getRow(position)][getCol(position)];
     }
 
     // This method tries to place the given piece at a given position, and returns true if successful, and false if
-    // there is already a piece of the same player in the given position or the position was illegal for any of the
-    // two reasons mentioned in the description of getPiece. If an opponent's piece exists, that piece is captured.
+    // the position was illegal.
     // If successful, this method should call an appropriate method in the ChessPiece class (i.e., setPosition) to
     // set the piece's position.
+    // This method is used for initialization as well as debugging a specific board setup
     public boolean placePiece(ChessPiece piece, String newPosition) {
         if(newPosition.length() != 2) return false;
         try {
-            String oldPosition = piece.getPosition();
-            int oldRow = getRow(oldPosition);
-            int oldCol = getCol(oldPosition);
-            if(getPiece(newPosition) == null || getPiece(newPosition).getColor() != piece.getColor()) {
-                piece.setPosition(newPosition);    //check out setPosition
+            //piece is not currently on board i.e. initializing board
+            if(piece.getPosition() == null){
+                piece.setPosition(newPosition);    
                 int row = getRow(newPosition);
                 int col = getCol(newPosition);
                 board[row][col] = piece;
-                board[oldRow][oldCol] = null;
                 return true;
-                //FIXME how do I account for a piece that is captured and removed from the board. I need to update that
-                //FIXME old piece instance row/col variables to be -1? Or I probably just don't care
             }
             else {
                 return false;
@@ -80,13 +70,29 @@ public class ChessBoard {
         return Character.getNumericValue(position.charAt(1)) - 1;
     }
 
-    public void move(String fromPosition, String toPosition) throws IllegalMoveException {
-        // This method checks if moving the piece from the fromPosition to toPosition is a legal move. Legality is
-        // defined based on the rules described above in Section 2.1. If the move is legal, it executes the move,
-        // changing the value of the board as needed. Otherwise, the stated exception is thrown.
-
-
-
+    //Checks that position is a location on the board
+    private void checkVaildPosition(String position) throws IllegalPositionException{
+        if(position.charAt(0) < 'a' || position.charAt(0) > 'h' ||
+                position.charAt(1) < '1' || position.charAt(1) > '8')
+            throw new IllegalPositionException();
+    }
+    
+    public void move(String fromPosition, String toPosition) throws IllegalMoveException, IllegalPositionException {
+        // This method checks if moving the piece from the fromPosition to toPosition is a legal move. If the move is legal,
+        // it executes the move changing the value of the board as needed. Otherwise, the stated exception is thrown.
+        checkVaildPosition(fromPosition);
+        checkVaildPosition(toPosition);
+        ChessPiece piece = getPiece(fromPosition);
+        if (piece == null) return;
+        ChessPiece capturedPiece = getPiece(toPosition);
+        if (capturedPiece == null || capturedPiece.getColor() != piece.getColor()) {
+            HashSet<String> legalMoves = piece.legalMoves();
+            if (legalMoves.contains(toPosition)) {
+                board[getRow(toPosition)][getCol(toPosition)] = piece;
+                board[getRow(fromPosition)][getCol(fromPosition)] = null;
+                piece.setPosition(toPosition);
+            }
+        }
     }
 
     public String toString() {
