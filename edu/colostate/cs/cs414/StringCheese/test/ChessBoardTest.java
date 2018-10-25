@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import edu.colostate.cs.cs414.StringCheese.src.IllegalPositionException;
+import edu.colostate.cs.cs414.StringCheese.src.*;
 
 
 class ChessBoardTest extends ChessSuite {
@@ -62,9 +63,7 @@ class ChessBoardTest extends ChessSuite {
     void move1() {
     }
 
-    @Test
-    void toString() {
-    }
+
 
     @Test
     void main() {

@@ -6,7 +6,7 @@ public class ChessBoard {
     private ChessPiece[][] board;
 
     public ChessBoard() {
-        board = new ChessPiece[8][8];
+        board = new ChessPiece[7][7];
     }
 
     public void initialize() {
@@ -14,20 +14,19 @@ public class ChessBoard {
         // This method should use the constructors of the appropriate pieces, and call placePiece below to place the
         // newly constructed pieces in the right position.
         // a = 0, b = 1, ..., h = 7
-        placePiece( new Rook(this, ChessPiece.Color.White), "a1");
-        placePiece( new Bishop(this, ChessPiece.Color.White), "c1");
-        placePiece( new King(this, ChessPiece.Color.White), "e1");
-        placePiece( new Bishop(this, ChessPiece.Color.White), "f1");
-        placePiece( new Rook(this, ChessPiece.Color.White), "h1");
-        for(char i = 'a'; i < 'i'; i++){
-            placePiece( new Pawn(this, ChessPiece.Color.White), Character.toString(i) + Integer.toString(2));
-            placePiece( new Pawn(this, ChessPiece.Color.Black), Character.toString(i) + Integer.toString(7));
-        }
-        placePiece( new Rook(this, ChessPiece.Color.Black), "a8");
-        placePiece( new Bishop(this, ChessPiece.Color.Black), "c8");
-        placePiece( new King(this, ChessPiece.Color.Black), "e8");
-        placePiece( new Bishop(this, ChessPiece.Color.Black), "f8");
-        placePiece( new Rook(this, ChessPiece.Color.Black), "h8");
+        placePiece( new Rook(this, ChessPiece.Color.White), "e1");
+		placePiece( new Rook(this, ChessPiece.Color.White), "e2");
+        placePiece( new Bishop(this, ChessPiece.Color.White), "d1");
+        placePiece( new King(this, ChessPiece.Color.White), "d2");
+        placePiece( new Pawn(this, ChessPiece.Color.White),"c1");
+		placePiece( new Pawn(this, ChessPiece.Color.White),"c2");
+
+		placePiece( new Rook(this, ChessPiece.Color.Black), "c7");
+		placePiece( new Rook(this, ChessPiece.Color.Black), "c6");
+		placePiece( new Bishop(this, ChessPiece.Color.Black), "d7");
+		placePiece( new King(this, ChessPiece.Color.Black), "d6");
+		placePiece( new Pawn(this, ChessPiece.Color.Black),"e6");
+		placePiece( new Pawn(this, ChessPiece.Color.Black),"e7");
 
     }
 
@@ -99,10 +98,28 @@ public class ChessBoard {
 
     public String toString() {
         String s = "";
-        for(int row = 0; row < 8; row++){
-            for(int col = 0; col < 8; col++){
-                s += board[row][col] + " | ";
+        int row = 0;
+        int col = 0;
+        for( row = 0; row < 7; row++){
+            if(row == 0){
+                s+= 7 + " ";
             }
+            else{
+                s+= (7-row) + " ";
+            }
+            for(col = 0; col < 7; col++){
+            	if(board[col][row] == null){
+            	    if(row >= 2 && col >= 2 && row <= 4 && col <=4){
+                        s += "X" + " | ";
+                    }
+                    else {
+                        s += "\u25A1" + " | ";
+                    }
+            	}
+				else {
+					s += board[col][row] + " | ";
+				}
+            	}
             s += '\n';
         }
         return s;

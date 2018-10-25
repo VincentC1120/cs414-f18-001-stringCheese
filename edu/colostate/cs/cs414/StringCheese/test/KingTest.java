@@ -6,7 +6,5 @@ class KingTest extends ChessSuite {
     void legalMoves() {
     }
 
-    @org.junit.jupiter.api.Test
-    void toString() {
-    }
+
 }
