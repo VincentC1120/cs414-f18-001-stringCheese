@@ -67,7 +67,7 @@ public class Pawn extends ChessPiece {
             letter -= 1;
             if(position.equals("g2")){
                 legalMoves.add("g1");
-                legalMoves.add("f2");
+                legalMoves.add("f1");
             }
             else {
                 legalMoves.add(Character.toString(letter).concat(Integer.toString(0)));
