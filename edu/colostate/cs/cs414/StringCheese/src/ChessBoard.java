@@ -43,7 +43,7 @@ public class ChessBoard {
         // string (e.g., e8) as described above. The first letter is in lowercase (a..h) and the second letter is a
         // digit (1..8). If the position is illegal because the string contains illegal characters or represents a
         // position outside the board, the exception is thrown.
-        checkVaildPosition(position);
+        checkValidPosition(position);
         return board[getRow(position)][getCol(position)];
     }
 
@@ -95,7 +95,7 @@ public class ChessBoard {
     }
 
     //Checks that position is a location on the board
-    private void checkVaildPosition(String position) throws IllegalPositionException{
+    private void checkValidPosition(String position) throws IllegalPositionException{
         if(position.charAt(0) < 'a' || position.charAt(0) > 'h' ||
                 position.charAt(1) < '1' || position.charAt(1) > '8')
             throw new IllegalPositionException("");
@@ -104,8 +104,8 @@ public class ChessBoard {
     public void move(String fromPosition, String toPosition) throws IllegalPositionException, IllegalMoveException {
         // This method checks if moving the piece from the fromPosition to toPosition is a legal move. If the move is legal,
         // it executes the move changing the value of the board as needed. Otherwise, the stated exception is thrown.
-        checkVaildPosition(fromPosition);
-        checkVaildPosition(toPosition);
+        checkValidPosition(fromPosition);
+        checkValidPosition(toPosition);
         ChessPiece piece = getPiece(fromPosition);
         if (piece == null) throw new IllegalMoveException("No piece found at " + fromPosition);
         ChessPiece capturedPiece = getPiece(toPosition);
@@ -211,7 +211,7 @@ public class ChessBoard {
 
      */
 
-    public HashSet<String> getNextDiagnolsClockwise(String position) {
+    public HashSet<String> getNextDiagonalClockwise(String position) {
         HashSet<String> legalMoves = new HashSet<>();
         char letter = position.charAt(0);
         int row = getRow(position);
@@ -255,7 +255,7 @@ public class ChessBoard {
         return legalMoves;
     }
 
-    public HashSet<String> getBackwardDiagnols(String position) {
+    public HashSet<String> getBackwardDiagonals(String position) {
         HashSet<String> legalMoves = new HashSet<>();
         char letter = position.charAt(0);
         int row = getRow(position);
