@@ -101,13 +101,13 @@ public class ChessBoard {
             throw new IllegalPositionException("");
     }
     
-    public void move(String fromPosition, String toPosition) throws IllegalMoveException, IllegalPositionException {
+    public void move(String fromPosition, String toPosition) throws IllegalPositionException, IllegalMoveException {
         // This method checks if moving the piece from the fromPosition to toPosition is a legal move. If the move is legal,
         // it executes the move changing the value of the board as needed. Otherwise, the stated exception is thrown.
         checkVaildPosition(fromPosition);
         checkVaildPosition(toPosition);
         ChessPiece piece = getPiece(fromPosition);
-        if (piece == null) return;
+        if (piece == null) throw new IllegalMoveException("No piece found at " + fromPosition);
         ChessPiece capturedPiece = getPiece(toPosition);
         if (capturedPiece == null || capturedPiece.getColor() != piece.getColor()) {
             HashSet<String> legalMoves = piece.legalMoves();
@@ -116,6 +116,8 @@ public class ChessBoard {
                 board[getRow(fromPosition)][getCol(fromPosition)] = null;
                 piece.setPosition(toPosition);
             }
+        }else{
+            throw new IllegalMoveException("Cannot move to position " + toPosition);
         }
     }
 	
