@@ -6,6 +6,11 @@ public class King extends ChessPiece {
 
     private HashSet<String> legalMoves;
 
+    @Override
+    public HashSet<String> getValidMoves() {
+        return null;
+    }
+
     public King(ChessBoard board, Color color) {
         super(board, color);
         legalMoves = new HashSet<String>();
