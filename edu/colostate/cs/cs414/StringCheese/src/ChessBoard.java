@@ -1,5 +1,7 @@
 package edu.colostate.cs.cs414.StringCheese.src;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class ChessBoard {
