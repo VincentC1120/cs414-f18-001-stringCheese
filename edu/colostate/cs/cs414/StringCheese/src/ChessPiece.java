@@ -24,7 +24,7 @@ public abstract class ChessPiece {
 
         if(position.charAt(0) < 'a' || position.charAt(0) > 'h' ||
            position.charAt(1) < '1' || position.charAt(1) > '8')
-            throw new IllegalPositionException();
+            throw new IllegalPositionException("");
 
         row = position.charAt(0) - 'a';
         column = Character.getNumericValue(position.charAt(1)) - 1;
