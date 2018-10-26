@@ -4,6 +4,8 @@ import java.util.HashSet;
 
 public abstract class ChessPiece {
 
+    public abstract HashSet<String> getValidMoves();
+
     public enum Color {White, Black};
     protected ChessBoard board; // the board it belongs to, default null
     protected int row; // the index of the horizontal rows 0..7

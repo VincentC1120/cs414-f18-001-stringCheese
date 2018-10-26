@@ -39,6 +39,21 @@ public class ChessBoard {
         return board[getRow(position)][getCol(position)];
     }
 
+    public HashSet<String> selectPiece(String position){
+        HashSet<String> moves = new HashSet<>();
+
+        try {
+            ChessPiece piece = getPiece(position);
+            if(piece == null){
+                return moves;
+            }
+            moves = piece.getValidMoves();
+            return moves;
+        } catch (IllegalPositionException e) {
+            return moves;
+        }
+    }
+
     // This method tries to place the given piece at a given position, and returns true if successful, and false if
     // the position was illegal.
     // If successful, this method should call an appropriate method in the ChessPiece class (i.e., setPosition) to
