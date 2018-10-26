@@ -75,7 +75,7 @@ public class ChessBoard {
     private void checkVaildPosition(String position) throws IllegalPositionException{
         if(position.charAt(0) < 'a' || position.charAt(0) > 'h' ||
                 position.charAt(1) < '1' || position.charAt(1) > '8')
-            throw new IllegalPositionException();
+            throw new IllegalPositionException("");
     }
     
     public void move(String fromPosition, String toPosition) throws IllegalMoveException, IllegalPositionException {
