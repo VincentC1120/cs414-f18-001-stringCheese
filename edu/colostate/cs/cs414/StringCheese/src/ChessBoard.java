@@ -4,9 +4,15 @@ import java.util.HashSet;
 
 public class ChessBoard {
     private ChessPiece[][] board;
+    private ArrayList<String> innerRing, outerRing;
 
     public ChessBoard() {
-        board = new ChessPiece[7][7];
+        board = new ChessPiece[8][8];
+        innerRing = new ArrayList<>(Arrays.asList("a1", "a2", "a3", "a4", "a5", "a6", "a7", "b7", "c7", "d7", "e7", "f7", "g7", "g6", "g5", "g4", "g3", "g2", "g1", "f1", "e1", "d1", "c1", "b1"));
+        outerRing = new ArrayList<>(Arrays.asList("b2", "b3", "b4", "b5", "b6", "c6", "d6", "e6", "f6", "f5", "f4", "f3", "f2", "e2", "d2", "c2"));
+
+        //outer ring clockwise a1, a2, a3, a4, a5, a6, a7, b7, c7, d7, e7, f7, g7, g6, g5, g4, g3, g2, g1, f1, e1, d1, c1, b1, a1
+        //inner ring clockwise b2, b3, b4, b5, b6, c6, d6, e6, f6, f5, f4, f3, f2, e2, d2, c2, b2
     }
 
     public void initialize() {
